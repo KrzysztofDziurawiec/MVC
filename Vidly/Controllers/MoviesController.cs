@@ -13,23 +13,23 @@ namespace Vidly.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-           
-            var movies = new List<Movie>()
-            {
-                new Movie {Name="Forest Gump" },
-                new Movie {Name="Alien" },
-                new Movie {Name="Shrek" }
-            };
-            var viewModel = new ListMovieViewModel
-            {
-                Movies = movies,
-            };
-            return View(viewModel);
+            var movies = GetMovies();
+            return View(movies);
         }
 
         public ActionResult Edit(int id)
         {
             return Content("id: " + id);
+        }
+
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>()
+            {
+                new Movie {Name="Forest Gump" },
+                new Movie {Name="Alien" },
+                new Movie {Name="Shrek" }
+            };
         }
 
         ////movies
