@@ -13,11 +13,8 @@ namespace Vidly
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                "MoviesByRealeaseDate",
-                "movies/released/{year}/{month}",
-                new {controller="Movies", action="ByRealeaseDate"}
-                );
+            routes.MapMvcAttributeRoutes();
+                
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
